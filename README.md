@@ -21,7 +21,6 @@ Russian, `/values-ru/strings.xml`:
 </resources>
 ```
 
-
 <!--
 .Strings - iOS
 en.strings

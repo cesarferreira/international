@@ -32,18 +32,8 @@ def separate_languages(all)
 
     manager = AndroidManager.new lang, items
     manager.create_file
-    puts "-----------------------------------------"
-
   end
 end
-
-# def create_android_languages_from_template(language, translations)
-#   template = File.read('templates/android.erb')
-#   template = Erubis::Eruby.new(template)
-# # TODO write to file
-#   puts "#{language}_strings.xml"
-#   puts template.result(@items)
-# end
 
 ####################################################
 ####################################################
@@ -54,7 +44,3 @@ hash = csv_to_hash(path_to_csv)
 
 languages = separate_languages hash
 
-#a = create_android_languages_from_template nil
-
-#a = Basicerb.new('cesar')
-#puts a.render
