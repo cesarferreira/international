@@ -22,9 +22,6 @@ module International
 
     end
 
-    def call
-    end
-
     ### Options parser
     def create_options_parser(args)
 

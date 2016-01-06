@@ -2,7 +2,6 @@ require 'erb'
 require 'erubis'
 require 'fileutils'
 require 'colorize'
-require 'pry'
 
 class AndroidManager
   def initialize language, items, output_folder, dryrun=false
@@ -14,7 +13,7 @@ class AndroidManager
   end
 
   def get_template_path
-    File.join(File.dirname(__FILE__), 'templates/android.erb') # add proper number of ..
+    File.join(File.dirname(__FILE__), 'templates/android.erb')
   end
 
   def get_file_name
