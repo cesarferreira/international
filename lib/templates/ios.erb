@@ -1,2 +1,2 @@
 <% for @item in @items %>
-  "<%= @item[:key] %>"="<%= @item[:translation] %>"<% end %>
+<%= @item[:key].upcase %>="<%= @item[:translation] %>";<% end %>

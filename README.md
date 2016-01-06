@@ -15,7 +15,7 @@ This will create the localization for you, based on a `.csv` file
   international --csv ~/import.csv
 ```
 ### Will have this output:
-English, `/values-en/translation.xml`:
+For **android** (English, etc.), `/values-en/translation.xml`:
 
 ```xml
 <?xml version="1.0" ?>
@@ -25,15 +25,15 @@ English, `/values-en/translation.xml`:
     <string name="goodbye_message">goodbye</string>
 </resources>
 ```
-Portuguese, `/values-pt/translation.xml`:
-```xml
-<?xml version="1.0" ?>
-<resources>
-    <string name="welcome_message">Bem vindo</string>
-    <string name="thank_you_message">Obrigado</string>
-    <string name="goodbye_message">Adeus</string>
-</resources>
+
+For **iOS** (English, etc.), `iosApp/en.lbproj/Localizable.strings`:
+
+```bash
+WELCOME_MESSAGE="Welcome";
+THANK_YOU_MESSAGE="Thank you";
+GOODBYE_MESSAGE="Goodbye";
 ```
+
 
 Given this `~/import.csv`
 ```csv
@@ -46,34 +46,11 @@ goodbye,adeus,goodbye,adios
 <b>You can also send it straight to some folder:</b>
 
 ```bash
-  international --csv ~/import.csv --output app/src/main/res/
+  # For iOS
+  international --csv ~/import.csv --platform ios --output iosApp/
+  # For Android
+  international --csv ~/import.csv --platform android --output app/src/main/res/
 ```
-
-
-<!--
-.Strings - iOS
-en.strings
-```
-/*  */
-"welcome_message" = "hello";
-
-/*  */
-"thank_you_message" = "thank you";
-
-/*  */
-"goodbye_message" = "goodbye";
-ru.strings
-
-/*  */
-"welcome_message" = "здравствуйте";
-
-/*  */
-"thank_you_message" = "спасибо";
-
-/*  */
-"goodbye_message" = "До свидания";
-```
--->
 
 
 ## Full usage
@@ -84,6 +61,7 @@ Usage: international [OPTIONS]
 Options
   -c, --csv PATH_TO_CSV         # Path to the .csv file
   -o, --output PATH_TO_OUTPUT   # Path to the desired output folder
+  -p, --platform PLATFORM       # Choose between "android" and "ios" (default: "android")
   -d, --dryrun                  # Only simulates the output and don't write files
   -h, --help                    # Displays help
   -v, --version                 # Displays version

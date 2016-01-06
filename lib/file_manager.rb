@@ -3,9 +3,10 @@ require 'erubis'
 require 'fileutils'
 require 'colorize'
 
-class AndroidManager
-  def initialize language, items, output_folder, dryrun=false
-    @language = language
+class FileManager
+  def initialize language, items, output_folder, platform, dryrun=false
+    @language = language.downcase
+    @platform = platform
     @dryrun = dryrun
     @items = items
     @path = output_folder
@@ -13,16 +14,20 @@ class AndroidManager
   end
 
   def get_template_path
-    File.join(File.dirname(__FILE__), 'templates/android.erb')
+    File.join(File.dirname(__FILE__), "templates/#{@platform}.erb")
   end
 
   def get_file_name
-    "values-#{@language}/translation.xml"
+    if @platform.eql?'android'
+      "values-#{@language}/translation.xml"
+    else
+      "#{@language}.lbproj/Localizable.strings"
+    end
   end
 
   def create_file
     file_name = get_file_name
-    destination_file_path =  "#{@path}#{file_name}"
+    destination_file_path = "#{@path}#{file_name}"
 
     pretty_print destination_file_path
 
