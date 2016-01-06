@@ -14,8 +14,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["cesarferreira"]
   spec.email         = ["cesar.manuel.ferreira@gmail.com"]
 
-  spec.summary       = %q{Convert CSV to localization strings}
-  spec.description   = %q{Convert CSV to localization strings}
+  spec.summary       = %q{Convert CSV to localization strings, for both ANDROID and iOS}
+  spec.description   = %q{Convert CSV to localization strings, for both ANDROID and iOS}
   spec.homepage      = "https://github.com/cesarferreira/international"
   spec.license       = "MIT"
 

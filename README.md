@@ -2,11 +2,10 @@
 
 > Convert CSV to localization strings, for both ANDROID and iOS
 
-<!-- <p align="center">
-<img src="extras/terminal.gif" />
+<p align="center">
+<img src="extras/screenshots/output.png" />
 </p>
 
- -->
 ## Usage
 
 This will create the localization for you, based on a `.csv` file
@@ -14,8 +13,16 @@ This will create the localization for you, based on a `.csv` file
 ```bash
   international --csv ~/import.csv
 ```
+
+### Given this `~/import.csv`
+```csv
+,pt,en,es
+welcome_message,Bem vindo,welcome,bienvenido
+goodbye,adeus,goodbye,adios
+```
+
 ### Will have this output:
-For **android** (English, etc.), `/values-en/translation.xml`:
+English output for **android**, `/values-en/translation.xml`:
 
 ```xml
 <?xml version="1.0" ?>
@@ -26,7 +33,7 @@ For **android** (English, etc.), `/values-en/translation.xml`:
 </resources>
 ```
 
-For **iOS** (English, etc.), `iosApp/en.lbproj/Localizable.strings`:
+English output for **iOS**, `iosApp/en.lbproj/Localizable.strings`:
 
 ```bash
 WELCOME_MESSAGE="Welcome";
@@ -34,16 +41,7 @@ THANK_YOU_MESSAGE="Thank you";
 GOODBYE_MESSAGE="Goodbye";
 ```
 
-
-Given this `~/import.csv`
-```csv
-keys,pt,en,es
-welcome_message,Bem vindo,welcome,bienvenido
-goodbye,adeus,goodbye,adios
-```
-
-
-<b>You can also send it straight to some folder:</b>
+### More complete:
 
 ```bash
   # For iOS
