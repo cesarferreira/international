@@ -10,7 +10,7 @@ module International
     def initialize(arguments)
 
       # defaults
-      @path_to_output = 'tmp/'
+      @path_to_output = 'output/'
       @path_to_csv = nil
       @dryrun = false
 
@@ -98,12 +98,13 @@ module International
 
       languages.each do |lang|
         items = Array.new
-        all.each do |value|
-          obj = {
-            :key => value[:key],
-            :translation => value[lang]
+        all.each do |row|
+          item = {
+            :key => row.first.last, # dem hacks
+            :translation => row[lang]
           }
-          items.push obj
+
+          items.push item
         end
 
         manager = AndroidManager.new lang, items, @path_to_output, @dryrun
