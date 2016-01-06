@@ -1,17 +1,26 @@
 require 'erb'
 require 'erubis'
 require 'fileutils'
+require 'colorize'
 
 class AndroidManager
   def initialize language, items
     @language = language
     @items = items
     @path = "#{Dir.pwd}/tmp/android/"
-    @template = File.read('./templates/android.erb')
+    @template = File.read(get_template_path)
+  end
+
+  def get_template_path
+    './templates/android.erb'
+  end
+
+  def get_file_name
+    "values-#{@language}/strings.xml"
   end
 
   def create_file
-    file_name = "values-#{@language}/strings.xml"
+    file_name = get_file_name
     destination_file_path =  "#{@path}#{file_name}"
 
     dirname = File.dirname(destination_file_path)
@@ -19,7 +28,13 @@ class AndroidManager
       FileUtils.mkdir_p(dirname)
     end
 
-    File.open(destination_file_path, 'a') { |f| f.write(self.render) }
+    File.open(destination_file_path, 'w') { |f| f.write(self.render) }
+    self.pretty_print destination_file_path
+  end
+
+  def pretty_print(path_to_file)
+    subtracted = path_to_file.gsub("#{Dir.pwd}/",'')
+    puts "created #{subtracted.green} successfully"
   end
 
   def render
