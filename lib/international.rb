@@ -35,7 +35,7 @@ module International
         end
 
         opts.on('-o PATH_TO_OUTPUT', '--output PATH_TO_OUTPUT', 'Path to the desired output folder') do |path_to_output|
-          unless path_to_output[0,1] == '/'
+          unless path_to_output[-1,1] == '/'
             path_to_output = "#{path_to_output}/"
           end
 
