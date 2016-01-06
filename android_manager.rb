@@ -16,7 +16,7 @@ class AndroidManager
   end
 
   def get_file_name
-    "values-#{@language}/strings.xml"
+    "values-#{@language}/translation.xml"
   end
 
   def create_file
