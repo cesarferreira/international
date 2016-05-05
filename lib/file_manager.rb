@@ -2,9 +2,17 @@ require 'erb'
 require 'erubis'
 require 'fileutils'
 require 'colorize'
+require 'pry'
 
 class FileManager
   def initialize language, items, output_folder, platform, dryrun=false
+
+    if language==nil
+      puts "INTERRUPTION:\n"
+      puts "Something is wrong with one of your language columns (maybe it's missing?)\n".red
+      exit 1
+    end
+
     @language = language.downcase
     @platform = platform
     @dryrun = dryrun
