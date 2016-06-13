@@ -2,7 +2,6 @@ require 'erb'
 require 'erubis'
 require 'fileutils'
 require 'colorize'
-require 'pry'
 
 class FileManager
   def initialize language, items, output_folder, platform, dryrun=false

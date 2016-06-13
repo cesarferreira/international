@@ -110,6 +110,9 @@ module International
       languages.each do |lang|
         items = Array.new
         all.each do |row|
+
+          next if row.first.nil?
+
           item = {
             :key => row.first.last, # dem hacks
             :translation => row[lang]
