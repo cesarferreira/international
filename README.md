@@ -1,4 +1,7 @@
-# International [![Gem Version](https://badge.fury.io/rb/international.svg)](https://badge.fury.io/rb/international)
+# International 
+
+![](http://ruby-gem-downloads-badge.herokuapp.com/international?type=total)
+[![Gem Version](https://badge.fury.io/rb/international.svg)](https://badge.fury.io/rb/international)
 
 > Convert translations from a .csv to the localization files
 > Convert CSV to localization strings, for both ANDROID and iOS
